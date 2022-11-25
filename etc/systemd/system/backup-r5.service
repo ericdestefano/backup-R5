@@ -1,0 +1,12 @@
+[Unit]
+Description=Backup R5 server /mnt/data to local HDD
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/home/eric/scripts/backup-r5.sh
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
